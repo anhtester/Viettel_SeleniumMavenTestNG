@@ -27,25 +27,29 @@ public class DemoTestNG {
         driver.quit();
     }
 
-    @Test
+    @Test(groups = "group1")
     public void testLoginCRM_Success(){
+        //Mở browser
         driver.get("https://crm.anhtester.com/admin/authentication");
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("admin@example.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
+        //Đóng browser
     }
 
-    @Test
+    @Test(groups = "group1")
     public void testLoginCRM_WithEmailInvalid(){
+        //Mở browser
         driver.get("https://crm.anhtester.com/admin/authentication");
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("admin123@example.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
 
         Assert.assertEquals(driver.getTitle(), "Dashboard"); //Fail vì không login được
+        //Đóng browser
     }
 
-    @Test
+    @Test(groups = "group2")
     public void testLoginCRM_WithPasswordInvalid(){
         driver.get("https://crm.anhtester.com/admin/authentication");
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("admin@example.com");

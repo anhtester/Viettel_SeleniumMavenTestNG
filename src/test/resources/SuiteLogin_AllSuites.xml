@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression Test" verbose="1">
+    <suite-files>
+        <suite-file path="SuiteLogin_Package.xml"></suite-file>
+        <suite-file path="SuiteLogin_Class.xml"></suite-file>
+        <suite-file path="SuiteLogin_Method.xml"></suite-file>
+    </suite-files>
+</suite>
