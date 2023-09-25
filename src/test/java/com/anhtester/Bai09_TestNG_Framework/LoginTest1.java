@@ -1,4 +1,4 @@
-package com.anhtester.Bai9_TestNG_Framework;
+package com.anhtester.Bai09_TestNG_Framework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class LoginTest2 {
+public class LoginTest1 {
 
     WebDriver driver;
 
@@ -27,7 +27,7 @@ public class LoginTest2 {
         driver.quit();
     }
 
-    @Test
+    @Test(priority = 3)
     public void testLoginCRM_Success(){
         driver.get("https://crm.anhtester.com/admin/authentication");
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("admin@example.com");
@@ -35,7 +35,7 @@ public class LoginTest2 {
         driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
     }
 
-    @Test
+    @Test(priority = 1)
     public void testLoginCRM_WithEmailInvalid(){
         driver.get("https://crm.anhtester.com/admin/authentication");
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("admin123@example.com");
@@ -45,7 +45,7 @@ public class LoginTest2 {
         Assert.assertEquals(driver.getTitle(), "Dashboard"); //Fail vì không login được
     }
 
-    @Test
+    @Test(priority = 2)
     public void testLoginCRM_WithPasswordInvalid(){
         driver.get("https://crm.anhtester.com/admin/authentication");
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("admin@example.com");

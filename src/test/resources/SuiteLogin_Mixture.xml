@@ -4,17 +4,17 @@
     <test name="Login Test CRM">
         <!-- Khi chạy hỗn hợp thì package để trên thẻ classes -->
         <packages>
-            <package name="com.anhtester.Bai9_TestNG_Framework">
+            <package name="com.anhtester.Bai09_TestNG_Framework">
             </package>
         </packages>
 
         <classes>
-            <class name="com.anhtester.Bai9_TestNG_Framework.LoginTest1">
+            <class name="com.anhtester.Bai09_TestNG_Framework.LoginTest1">
                 <methods>
                     <include name="testLoginCRM_Success"/>
                 </methods>
             </class>
-            <class name="com.anhtester.Bai9_TestNG_Framework.LoginTest2"/>
+            <class name="com.anhtester.Bai09_TestNG_Framework.LoginTest2"/>
         </classes>
     </test>
 </suite>

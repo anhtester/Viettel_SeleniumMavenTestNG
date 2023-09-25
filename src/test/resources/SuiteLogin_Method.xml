@@ -3,7 +3,7 @@
 <suite name="Regression Test" verbose="1">
     <test name="Login Test CRM">
         <classes>
-            <class name="com.anhtester.Bai9_TestNG_Framework.LoginTest1">
+            <class name="com.anhtester.Bai09_TestNG_Framework.LoginTest1">
                 <methods>
 <!--                    <include name="testLoginCRM_Success"/>-->
                     <exclude name="testLoginCRM_Success"></exclude>

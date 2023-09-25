@@ -3,13 +3,13 @@
 <suite name="Regression Test" verbose="1">
     <test name="Login Test CRM">
 <!--        <classes>-->
-<!--            <class name="com.anhtester.Bai9_TestNG_Framework.DemoTestNG" />-->
-<!--            <class name="com.anhtester.Bai9_TestNG_Framework.LoginTest1" />-->
-<!--            <class name="com.anhtester.Bai9_TestNG_Framework.LoginTest2" />-->
+<!--            <class name="com.anhtester.Bai09_TestNG_Frameworkk.DemoTestNG" />-->
+<!--            <class name="com.anhtester.Bai09_TestNG_Frameworkk.LoginTest1" />-->
+<!--            <class name="com.anhtester.Bai09_TestNG_Frameworkk.LoginTest2" />-->
 <!--        </classes>-->
 
         <packages>
-            <package name="com.anhtester.Bai9_TestNG_Framework"></package>
+            <package name="com.anhtester.Bai09_TestNG_Framework"></package>
         </packages>
     </test>
 </suite>

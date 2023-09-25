@@ -1,4 +1,4 @@
-package com.anhtester.Bai9_TestNG_Framework;
+package com.anhtester.Bai09_TestNG_Framework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class LoginTest1 {
+public class DemoTestNG {
 
     WebDriver driver;
 
@@ -27,25 +27,29 @@ public class LoginTest1 {
         driver.quit();
     }
 
-    @Test(priority = 3)
+    @Test(groups = "group1")
     public void testLoginCRM_Success(){
+        //Mở browser
         driver.get("https://crm.anhtester.com/admin/authentication");
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("admin@example.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
+        //Đóng browser
     }
 
-    @Test(priority = 1)
+    @Test(groups = "group1")
     public void testLoginCRM_WithEmailInvalid(){
+        //Mở browser
         driver.get("https://crm.anhtester.com/admin/authentication");
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("admin123@example.com");
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("123456");
         driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
 
         Assert.assertEquals(driver.getTitle(), "Dashboard"); //Fail vì không login được
+        //Đóng browser
     }
 
-    @Test(priority = 2)
+    @Test(groups = "group2")
     public void testLoginCRM_WithPasswordInvalid(){
         driver.get("https://crm.anhtester.com/admin/authentication");
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("admin@example.com");
