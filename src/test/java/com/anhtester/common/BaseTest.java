@@ -1,5 +1,6 @@
 package com.anhtester.common;
 
+import com.anhtester.keywords.WebUI;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -65,19 +66,22 @@ public class BaseTest {
 
     @BeforeMethod
     public void createBrowser() {
-        System.setProperty("webdriver.http.factory", "jdk-http-client");
+        //System.setProperty("webdriver.http.factory", "jdk-http-client");
         //Khởi tạo Browser
         driver = new ChromeDriver();
         //2 hàm chờ đợi
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); //Học kỹ bài số 15
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); //Học kỹ bài số 15
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
         //2 hàm để maximize/minimize cửa sổ trình duyệt
         driver.manage().window().maximize();
+
+        //Khai báo class WebUI để khởi tạo giá trị driver cho class WebUI
+        new WebUI(driver);
     }
 
     public void createBrowser(String browserName) {
         //Khởi tạo Browser
-        System.setProperty("webdriver.http.factory", "jdk-http-client");
+        //System.setProperty("webdriver.http.factory", "jdk-http-client");
         if (browserName.trim().toLowerCase().equals("chrome")) {
             driver = new ChromeDriver();
         }
@@ -97,11 +101,6 @@ public class BaseTest {
 
     @AfterMethod
     public void closeBrowser() {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         //Đóng Browser
         driver.quit();
     }

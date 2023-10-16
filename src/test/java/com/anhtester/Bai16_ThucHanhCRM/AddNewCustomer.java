@@ -1,27 +1,35 @@
-package com.anhtester.ThucHanh;
+package com.anhtester.Bai16_ThucHanhCRM;
 
 import com.anhtester.common.BaseTest;
+import com.anhtester.keywords.WebUI;
 import com.anhtester.locators.LocatorCRM;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class AddNewCustomer extends BaseTest {
 
-    String COMPANY_NAME = "Viettel VTX 01";
+    String COMPANY_NAME = "Viettel Aerospace 04";
 
     public void loginToCRM() {
         driver.get("https://crm.anhtester.com/admin/authentication");
-        driver.findElement(By.xpath(LocatorCRM.inputEmail)).sendKeys("admin@example.com");
-        driver.findElement(By.xpath(LocatorCRM.inputPassword)).sendKeys("123456");
-        driver.findElement(By.xpath(LocatorCRM.buttonLogin)).click();
+
+        //Đã tích hợp cơ chế wait vào
+        WebUI.setText(LocatorCRM.inputEmail, "admin@example.com");
+        WebUI.setText(LocatorCRM.inputPassword, "123456");
+        WebUI.clickElement(LocatorCRM.buttonLogin);
+
         Assert.assertTrue(driver.findElement(By.xpath(LocatorCRM.menuDashboard)).isDisplayed(), "Menu Dashboard not displayed.");
     }
 
     public void openCustomerPage() {
         loginToCRM();
-        driver.findElement(By.xpath(LocatorCRM.menuCustomers)).click();
+        WebUI.clickElement(LocatorCRM.menuCustomers);
         Assert.assertTrue(driver.findElement(By.xpath(LocatorCRM.headerCustomerPage)).isDisplayed(), "Header Customer page not displayed.");
     }
 
@@ -29,30 +37,28 @@ public class AddNewCustomer extends BaseTest {
     public void testAddNewCustomer() {
         openCustomerPage();
 
-        driver.findElement(By.xpath(LocatorCRM.buttonAddNewCustomer)).click();
-        driver.findElement(By.xpath(LocatorCRM.inputCompany)).sendKeys(COMPANY_NAME);
-        driver.findElement(By.xpath(LocatorCRM.inputVatNumber)).sendKeys("10");
-        driver.findElement(By.xpath(LocatorCRM.inputPhone)).sendKeys("123456789");
-        driver.findElement(By.xpath(LocatorCRM.inputWebsite)).sendKeys("https://viettel.com.vn");
-        driver.findElement(By.xpath(LocatorCRM.dropdownGroups)).click();
-        driver.findElement(By.xpath(LocatorCRM.inputSearchGroups)).sendKeys("VIP");
-        sleep(1);
+        WebUI.clickElement(LocatorCRM.buttonAddNewCustomer);
+        WebUI.setText(LocatorCRM.inputCompany, COMPANY_NAME);
+        WebUI.setText(LocatorCRM.inputVatNumber, "10");
+        WebUI.setText(LocatorCRM.inputPhone, "123456789");
+        WebUI.setText(LocatorCRM.inputWebsite, "https://viettel.com.vn");
+        WebUI.clickElement(LocatorCRM.dropdownGroups);
+        WebUI.setText(LocatorCRM.inputSearchGroups, "VIP");
+
         driver.findElement(By.xpath(LocatorCRM.inputSearchGroups)).sendKeys(Keys.ENTER);
-        driver.findElement(By.xpath(LocatorCRM.dropdownGroups)).click();
-        driver.findElement(By.xpath(LocatorCRM.inputAddress)).sendKeys("Ha Noi");
-        driver.findElement(By.xpath(LocatorCRM.inputCity)).sendKeys("Ha Noi");
-        driver.findElement(By.xpath(LocatorCRM.inputState)).sendKeys("Hoan Kiem");
-        driver.findElement(By.xpath(LocatorCRM.inputZipCode)).sendKeys("1000");
-        driver.findElement(By.xpath(LocatorCRM.dropdownCountry)).click();
-        sleep(1);
-        driver.findElement(By.xpath(LocatorCRM.inputSearchCountry)).sendKeys("Vietnam");
-        sleep(1);
+
+        WebUI.clickElement(LocatorCRM.dropdownGroups);
+        WebUI.setText(LocatorCRM.inputAddress, "Ha Noi");
+        WebUI.setText(LocatorCRM.inputCity, "Ha Noi");
+        WebUI.setText(LocatorCRM.inputState, "Hoan Kiem");
+        WebUI.setText(LocatorCRM.inputZipCode, "1234");
+        WebUI.clickElement(LocatorCRM.dropdownCountry);
+
+        WebUI.setText(LocatorCRM.inputSearchCountry, "Vietnam");
         driver.findElement(By.xpath(LocatorCRM.inputSearchCountry)).sendKeys(Keys.ENTER);
-        sleep(1);
-        driver.findElement(By.xpath(LocatorCRM.buttonSaveCustomer)).click();
-        sleep(3);
-        driver.findElement(By.xpath(LocatorCRM.menuCustomers)).click();
-        driver.findElement(By.xpath(LocatorCRM.inputSearchCustomers)).sendKeys(COMPANY_NAME);
+        WebUI.clickElement(LocatorCRM.buttonSaveCustomer);
+        WebUI.clickElement(LocatorCRM.menuCustomers);
+        WebUI.setText(LocatorCRM.inputSearchCustomers, COMPANY_NAME);
         sleep(2);
         Assert.assertTrue(driver.findElement(By.xpath(LocatorCRM.firstItemCustomerOnTable)).isDisplayed());
         Assert.assertEquals(driver.findElement(By.xpath(LocatorCRM.firstItemCustomerOnTable)).getText(), COMPANY_NAME);
