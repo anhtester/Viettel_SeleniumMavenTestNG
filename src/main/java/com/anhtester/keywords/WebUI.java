@@ -13,6 +13,14 @@ public class WebUI {
     private static WebDriverWait wait;
     private static WebDriver driver;
 
+    public static void sleep(double second) {
+        try {
+            Thread.sleep((long) (1000 * second));
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     //Hàm xây dựng để truyền driver từ bên ngoài vào class này
     public WebUI(WebDriver driver){
         this.driver = driver;
