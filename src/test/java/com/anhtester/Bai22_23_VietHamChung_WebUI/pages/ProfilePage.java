@@ -1,12 +1,10 @@
-package com.anhtester.Bai20_21_ThucHanh_POM.pages;
+package com.anhtester.Bai22_23_VietHamChung_WebUI.pages;
 
 import com.anhtester.keywords.WebUI;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-public class ProfilePage extends CustomerPage{
+public class ProfilePage extends CustomerPage {
 
     private WebDriver driver;
 
