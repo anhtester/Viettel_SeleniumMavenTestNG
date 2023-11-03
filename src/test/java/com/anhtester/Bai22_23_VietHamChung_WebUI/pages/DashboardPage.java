@@ -20,6 +20,7 @@ public class DashboardPage {
     private By optionProfile = By.xpath("(//a[normalize-space()='My Profile'])[2]");
 
     public CustomerPage clickMenuCustomers(){
+        WebUI.waitForPageLoaded();
         WebUI.clickElement(menuCustomers);
         System.out.println("Click on menu Customers");
 

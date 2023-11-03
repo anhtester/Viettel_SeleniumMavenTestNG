@@ -16,7 +16,7 @@ public class ProfilePage extends CustomerPage {
 
     public void verifyCustomerDetail(String companyName){
         Assert.assertEquals(driver.findElement(inputCompany).getAttribute("value"), companyName , "Message");
-
+        //Viết thêm cho các fields khác
     }
 
 }

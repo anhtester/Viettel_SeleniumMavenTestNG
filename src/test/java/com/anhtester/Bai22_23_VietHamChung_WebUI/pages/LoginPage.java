@@ -52,6 +52,7 @@ public class LoginPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(buttonLogin));
 //        driver.findElement(buttonLogin).click();
 //        System.out.println("Click on Login button: " + buttonLogin);
+        WebUI.waitForElementVisible(buttonLogin);
         WebUI.clickElement(buttonLogin);
     }
 
@@ -59,10 +60,11 @@ public class LoginPage {
         //driver.get(url);
         WebUI.openURL(url);
         //System.out.println("Navigate to URL: " + url);
+        WebUI.waitForPageLoaded();
         setInputEmail(email);
         setInputPassword(password);
         clickButtonLogin();
-
+        WebUI.waitForPageLoaded();
         return new DashboardPage(driver);
     }
 

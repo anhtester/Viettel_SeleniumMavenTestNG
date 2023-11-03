@@ -15,7 +15,7 @@ public class CustomerTest extends BaseTest {
     CustomerPage customerPage;
     ProfilePage profilePage;
 
-    private String CUSTOMER_NAME = "Viettel A1";
+    private String CUSTOMER_NAME = "Viettel A5";
 
     @Test
     public void testAddNewCustomer(){
