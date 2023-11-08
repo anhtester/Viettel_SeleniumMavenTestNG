@@ -1,0 +1,27 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression Test" verbose="1">
+
+    <parameter name="number1" value="7"></parameter>
+    <parameter name="number2" value="10"></parameter>
+    <parameter name="number3" value="13"></parameter>
+    <parameter name="email" value="admin@example.com"></parameter>
+    <parameter name="password" value="123456"></parameter>
+
+    <test name="Demo Parameter 01">
+        <parameter name="number1" value="2"></parameter>
+        <parameter name="number2" value="4"></parameter>
+        <parameter name="number3" value="8"></parameter>
+        <classes>
+            <class name="com.anhtester.Bai24_Parameters_MultiBrowser.DemoParameters01">
+            </class>
+        </classes>
+    </test>
+
+    <test name="Demo Parameter 02">
+        <classes>
+            <class name="com.anhtester.Bai24_Parameters_MultiBrowser.DemoParameters02">
+            </class>
+        </classes>
+    </test>
+</suite>

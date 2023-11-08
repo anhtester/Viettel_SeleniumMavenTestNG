@@ -5,10 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -65,23 +62,13 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public void createBrowser() {
-        //System.setProperty("webdriver.http.factory", "jdk-http-client");
-        //Khởi tạo Browser
-        driver = new ChromeDriver();
-        //2 hàm chờ đợi
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); //Học kỹ bài số 15
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-        //2 hàm để maximize/minimize cửa sổ trình duyệt
-        driver.manage().window().maximize();
-
-        //Khai báo class WebUI để khởi tạo giá trị driver cho class WebUI
+    @Parameters({"browser"})
+    public void createBrowser(String browserName) {
+        setBrowser(browserName);
         new WebUI(driver);
     }
 
-    public void createBrowser(String browserName) {
-        //Khởi tạo Browser
-        //System.setProperty("webdriver.http.factory", "jdk-http-client");
+    public void setBrowser(String browserName) {
         if (browserName.trim().toLowerCase().equals("chrome")) {
             driver = new ChromeDriver();
         }
@@ -92,10 +79,8 @@ public class BaseTest {
             driver = new FirefoxDriver();
         }
 
-        //2 hàm chờ đợi
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); //Học kỹ bài số 15
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-        //2 hàm để maximize/minimize cửa sổ trình duyệt
         driver.manage().window().maximize();
     }
 
