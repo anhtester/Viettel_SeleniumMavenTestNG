@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression Test" verbose="1" parallel="classes">
+    <!-- Chạy song song các Class trong từng thẻ <test> chỉ định -->
+    <test name="Login Test CRM 1" parallel="methods">
+<!-- Nếu không dùng parallel="methods" kết hợp thì nó chỉ chạy tuần tự các @Test trong từng class -->
+        <classes>
+            <class name="com.anhtester.Bai25_ParallelExecutionTestNG.DemoParallelExecution01">
+            </class>
+            <class name="com.anhtester.Bai25_ParallelExecutionTestNG.DemoParallelExecution02">
+            </class>
+        </classes>
+    </test>
+</suite>
