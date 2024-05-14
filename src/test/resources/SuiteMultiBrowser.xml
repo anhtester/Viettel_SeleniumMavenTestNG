@@ -2,10 +2,10 @@
 
 <suite name="Regression Test" verbose="1">
 
-    <parameter name="browser" value="edge"></parameter>
+    <parameter name="browser" value="edge"/>
 
     <test name="Login Test CRM 1">
-        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="com.anhtester.Bai22_23_VietHamChung_WebUI.testcases.LoginTest">
                 <methods>
@@ -15,7 +15,7 @@
         </classes>
     </test>
     <test name="Login Test CRM 2">
-        <parameter name="browser" value="edge"></parameter>
+        <parameter name="browser" value="edge"/>
         <classes>
             <class name="com.anhtester.Bai22_23_VietHamChung_WebUI.testcases.LoginTest">
                 <methods>
@@ -25,7 +25,7 @@
         </classes>
     </test>
     <test name="Login Test CRM 3">
-        <parameter name="browser" value="firefox"></parameter>
+        <parameter name="browser" value="firefox"/>
         <classes>
             <class name="com.anhtester.Bai22_23_VietHamChung_WebUI.testcases.LoginTest">
                 <methods>
